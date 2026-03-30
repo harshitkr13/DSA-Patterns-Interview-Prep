@@ -1,4 +1,4 @@
-# 🚀 Two Pointer / Sliding Window Pattern (Striver Style)
+# 🚀 Two Pointer / Sliding Window Pattern
 
 Master one of the most powerful DSA patterns used in interviews.
 
