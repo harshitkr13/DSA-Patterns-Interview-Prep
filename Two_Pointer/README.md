@@ -1,15 +1,28 @@
-# 🚀 Two Pointer / Sliding Window Pattern
+# 🚀 Two Pointer & Sliding Window Pattern
 
-Master one of the most powerful DSA patterns used in interviews.
+Master one of the most important patterns for coding interviews.
 
 ---
 
-## 🧠 What is Two Pointer?
+## 🧠 What is Two Pointer / Sliding Window?
 
-Two pointers (L & R) help you efficiently traverse arrays/strings while maintaining a **window**.
+* Use two pointers (`L`, `R`) to maintain a **window**
+* Helps convert **O(n²) → O(n)**
 
-* `L` → Left pointer (start of window)
-* `R` → Right pointer (end of window)
+👉 Works best for:
+
+* Arrays / Strings
+* Subarrays / Substrings
+* Contiguous segments
+
+---
+
+## 🎯 When to Use?
+
+* Longest / shortest subarray
+* Count of subarrays
+* Fixed-size window problems
+* Sorted arrays (two pointer)
 
 ---
 
@@ -30,7 +43,7 @@ Two pointers (L & R) help you efficiently traverse arrays/strings while maintain
 
 ### 💡 Key Idea:
 
-> **Fixed size → Just slide**
+> Fixed size → Just slide
 
 ---
 
@@ -61,7 +74,7 @@ int maxSum(vector<int>& arr, int k) {
 
 ---
 
-# 📌 2. Longest Subarray / Substring with Condition ⭐ (MOST IMPORTANT)
+# 📌 2. Longest Subarray / Substring ⭐ (MOST IMPORTANT)
 
 ### 🎯 Problem Type:
 
@@ -81,7 +94,7 @@ int maxSum(vector<int>& arr, int k) {
 
 ### 💡 Key Idea:
 
-> **Expand when valid, shrink when invalid**
+> Expand when valid, shrink when invalid
 
 ---
 
@@ -113,12 +126,12 @@ int longestSubarray(vector<int>& arr, int k) {
 
 ### ⏱ Complexity:
 
-* **Time:** O(n)
-* **Space:** O(1)
+* Time: O(n)
+* Space: O(1)
 
 ---
 
-# 📌 3. Count Number of Subarrays with Condition
+# 📌 3. Count Number of Subarrays
 
 ### 🎯 Problem Type:
 
@@ -129,8 +142,6 @@ int longestSubarray(vector<int>& arr, int k) {
 
 ### ⚙️ Trick Used:
 
-Convert:
-
 ```
 count(sum = k) = count(sum ≤ k) - count(sum ≤ k - 1)
 ```
@@ -139,7 +150,7 @@ count(sum = k) = count(sum ≤ k) - count(sum ≤ k - 1)
 
 ### 💡 Key Idea:
 
-> **Counting problems → Reduce to ≤ condition**
+> Counting problems → Reduce to ≤ condition
 
 ---
 
@@ -181,14 +192,14 @@ int helper(vector<int>& arr, int k) {
 
 ### ⚙️ Approach:
 
-1. Expand until valid
-2. Shrink as much as possible
+* Expand until valid
+* Shrink as much as possible
 
 ---
 
 ### 💡 Key Idea:
 
-> **Once valid → shrink aggressively**
+> Once valid → shrink aggressively
 
 ---
 
@@ -212,6 +223,81 @@ int minWindow(vector<int>& arr, int k) {
     return (minLen == INT_MAX) ? -1 : minLen;
 }
 ```
+
+---
+
+# 📌 5. Basic Two Pointer (Sorted Array)
+
+### 🎯 Problem Type:
+
+* Pair problems
+* Example: Two Sum (sorted array)
+
+### 💡 Key Idea:
+
+> Move pointer based on condition
+
+---
+
+### 🧩 Template:
+
+```cpp
+int left = 0, right = n - 1;
+
+while(left < right){
+    if(condition){
+        left++;
+    } else {
+        right--;
+    }
+}
+```
+
+---
+
+# 📌 6. Opposite Direction Pointer
+
+### 🎯 Problem Type:
+
+* Start from both ends
+* Example: Container With Most Water
+
+### 💡 Key Idea:
+
+> Move the limiting pointer
+
+---
+
+### 🧩 Template:
+
+```cpp
+int left = 0, right = n - 1;
+
+while(left < right){
+    if(arr[left] < arr[right])
+        left++;
+    else
+        right--;
+}
+```
+
+---
+
+# ⚠️ Special Cases
+
+* Negative numbers → Sliding window may fail
+* Use hashmap for duplicates
+* Condition must be monotonic
+* Carefully define invalid condition
+
+---
+
+# ❗ Common Mistakes
+
+* Updating answer before fixing window
+* Wrong shrink condition
+* Infinite loop (`while` mistake)
+* Confusing longest vs minimum logic
 
 ---
 
@@ -241,16 +327,11 @@ If window valid → update answer
 * Longest Substring Without Repeating Characters
 * Number of Subarrays with Sum K
 * Minimum Window Substring
+* Container With Most Water
+* 3Sum
 
 ---
 
-# ⭐ Pro Tip
+# 🎯 Goal
 
-Most problems are just variations of:
-👉 **Longest OR Count OR Minimum**
-
-Once you master Pattern 2 → You unlock 70% of problems 🔓
-
----
-
-Happy Coding 💻🔥
+> Recognize pattern instantly → solve in O(n)
