@@ -17,12 +17,15 @@ Master one of the most important patterns for coding interviews.
 
 ---
 
-## 🎯 When to Use?
+## 🧠 How to Identify Two Pointer / Sliding Window??
 
 * Longest / shortest subarray
+* Contiguous subarray / substring 
 * Count of subarrays
+* Window can expand & shrink
 * Fixed-size window problems
 * Sorted arrays (two pointer)
+* Need optimal (max/min length or count)  
 
 ---
 
@@ -145,6 +148,10 @@ int longestSubarray(vector<int>& arr, int k) {
 ```
 count(sum = k) = count(sum ≤ k) - count(sum ≤ k - 1)
 ```
+
+### ⚠️ Note:
+This trick works only when all elements are non-negative.
+For negative numbers, use HashMap (prefix sum).
 
 ---
 
