@@ -1,0 +1,145 @@
+# 🚀 Prefix Sum + Hashing Pattern
+
+> 💡 One of the most powerful patterns to solve **subarray problems in O(n)**
+
+---
+
+## 🧠 What is this Pattern?
+
+This pattern combines:
+
+* 📌 **Prefix Sum** → To store cumulative sums
+* 📌 **HashMap (`unordered_map`)** → To store frequency / index
+
+### ✅ Used When:
+
+* Count subarrays
+* Find longest subarray
+* Check conditions on subarray sums
+
+---
+
+## ⚡ Core Intuition
+
+Instead of recalculating sums repeatedly, we store running sums and use mathematical relationships to solve problems efficiently.
+
+---
+
+## 🔑 Key Observations
+
+### 📌 1. Subarray Sum Formula
+
+```cpp
+sum(i, j) = prefix[j] - prefix[i]
+```
+
+---
+
+### 📌 2. When Sum = K
+
+```cpp
+prefix[j] - prefix[i] = K
+⇒ prefix[i] = prefix[j] - K
+```
+
+👉 Check if `(current_sum - K)` exists in map
+
+---
+
+### 📌 3. When Sum is Divisible by K
+
+```cpp
+prefix[j] % K == prefix[i] % K
+```
+
+👉 Same remainder ⇒ valid subarray
+
+---
+
+### 📌 4. Longest Subarray
+
+* Store **first occurrence** of prefix sum
+* Maximize distance `(j - i)`
+
+---
+
+### 📌 5. Count Subarrays
+
+* Store **frequency** of prefix sum
+* Add count whenever condition satisfies
+
+---
+
+## 📂 Problems Covered
+
+| 🧩 Problem                           | 🔗 Platform |
+| ------------------------------------ | ----------- |
+| Subarray Sum Equals K                | LC-560      |
+| Longest Subarray Sum K               | GFG         |
+| Count Subarrays Divisible by K       | LC-974      |
+| Count Subarrays with Equal 0s and 1s | GFG         |
+| Largest Subarray with 0 Sum          | GFG         |
+
+---
+
+## 🎯 Pattern Recognition Guide
+
+| 🔍 Problem Type  | 💡 Trick                   |
+| ---------------- | -------------------------- |
+| Count subarrays  | Use **frequency map**      |
+| Longest subarray | Store **first occurrence** |
+| Equal 0s & 1s    | Convert `0 → -1`           |
+| Divisible by K   | Use **modulo logic**       |
+
+---
+
+## 🧮 Dry Run Example
+
+```cpp
+arr = [1, 2, 3], K = 3
+
+prefix sum:
+1 → 3 → 6
+
+Check:
+3 - 3 = 0 ✅
+6 - 3 = 3 ✅
+```
+
+👉 Total subarrays = **2**
+
+---
+
+## 🏁 Complexity
+
+| Type     | Value    |
+| -------- | -------- |
+| ⏱ Time   | **O(n)** |
+| 🧠 Space | **O(n)** |
+
+---
+
+## 🔥 Pro Tip (Striver Style)
+
+> Whenever you see:
+
+* "Subarray"
+* "Sum = K"
+* "Longest / Count"
+
+⚡ Instantly think:
+
+```
+Prefix Sum + HashMap
+```
+
+---
+
+## 🚀 Bonus Insight
+
+💡 Prefix sum transforms:
+
+* Brute force → **O(n²)**
+* Optimized → **O(n)**
+
+🔥 That’s why it’s an interview favorite!
